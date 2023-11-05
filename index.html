@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="style.css">
+
+   
 </head>
 <body>
+      
+    <div class="container">
+        <div class="transition">
+            <div class="cover cover1"></div>
+            <div class="cover cover2"></div>
+            <div class="cover cover3"></div>
+        </div>
+    </div>
+    
     <div class="wrapper">
-        <img src="3-avatar.png" class="avtar">
+       
+        <img src="3-main.gif" class="avtar">
+            
         <div class="formbox">
-            <h2>login</h2>
+            <h1 class="lg">L O G I N</h1>
             <form action="#">
                 <div class="inputbox">
                     <span class="icon">
@@ -28,9 +41,13 @@
                 </div>
             </form>
             <div class="remember-forget">
-                <label><input type="checkbox">Remember Me</label>
+                <input type="checkbox">
+                <label>Remember Me</label>
             </div>
-            <button type="submit" class="btn" id="submit">Submit</button>
+            <a href="main.html" class="link">
+                <button type="submit" class="btn" id="submit" onclick="audio.play();">Submit</button>
+            </a>
+            
         </div>
     </div>
     <div class="bub">
@@ -43,8 +60,21 @@
         <img src="2-circle.png">
         
     </div>
-
-
-    <script src="script.js"></script>
+    <script type="text/javascript">
+        const link = document.querySelector(".link");
+        const transition = document.querySelector(".transition");
+        link.addEventListener("click",(e) =>{
+            e.preventDefault();
+            transition.classList.add("slide");
+            setTimeout(() => {
+                window.location = link.href;
+                }, 900);
+        });
+        const audio = new Audio();
+        
+        audio.src= "whoosh.mp3";
+        
+    </script>
+   
 </body>
 </html>

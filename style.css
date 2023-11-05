@@ -13,11 +13,14 @@ body{
     align-items: center;
     background: url(0-BackgroundOgero.png);
     background-size: cover;
+    background-repeat: no-repeat;
 }
+
+
 .wrapper{
     position: relative;
     width: 400px;
-    height: 400px;
+    height: 450px;
     right: 150px;
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
@@ -27,28 +30,109 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
+
 .avtar{
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
+    width: 150px;
+    height: 150px;
+    border-radius: 47%;
+    background: rgba(167, 7, 100, 0.763);
+    
     position: absolute;
-    top: -50px;
+    top: -77px;
     padding: 5px;
 
 }
+/*  make move border
+.avtar::after{
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-image: conic-gradient(transparent,transparent,transparent,#ed41ae);
+    animation: animate 5s linear infinite;
+    animation-delay: -2s;
+} 
+.avtar::before{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: conic-gradient(transparent,transparent,transparent,#00ccff);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+.wwa span{
+    position: absolute;
+    inset: 5px;
+    border-radius: 16px;
+    background: #415875;
+    z-index: 1;
+}
+ */
+.cover{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(63, 81, 241);
+    top: 0;
+    left: -100vw;
+    z-index: 1000;
+}
+.transition.slide .cover1{
+    background-color: rgb(165, 5, 99);
+    animation: slide 0.3s ease-in-out forwards;
+}
+.transition.slide .cover2{
+    background-color: rgb(215, 65, 140);
+    animation: slide 0.3s ease-in-out forwards;
+    animation-delay: 0.3s;
+}
+.transition.slide .cover3{
+    background-color: #f0a4bc;
+    animation: slide 0.3s ease-in-out forwards;
+    animation-delay: 0.6s;
+
+}
+@keyframes slide{
+    from{
+        left: -1000vw;
+    }
+    to{
+        left: 0;
+    }
+}
+
+
 .wrapper .formbox{
     width: 100%;
     padding: 40px;
 }
-.formbox h2{
+.formbox h1{
     font-size: 1.5em;
-    color: #30353b;
-    margin-top: 20px;
+    margin-top: -9px;
     text-align: center;
     text-transform: capitalize;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    background: url(4-vavatar.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 33s linear infinite;
+}
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
+    }
 }
 
 .inputbox{
@@ -56,7 +140,7 @@ body{
     width: 100%;
     height: 50px;
     border-bottom: 2px solid #30353b;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 .inputbox label{
     position: absolute;
@@ -64,10 +148,11 @@ body{
     left: 5px;
     transform: translateY(-50%);
     font-size: 1em;
-    color: #30353b;
-    font-weight: 800;
+    color: #693751;
+    font-weight: 700;
     pointer-events: none;
     transition: .5s;
+    text-shadow: #1d4270;
 }
 .inputbox input:focus~label,
 .inputbox input:valid~label{
@@ -79,7 +164,7 @@ body{
     background: transparent;
     border: none;
     outline: none;
-    color: #30353b;
+    color: #1d4270;
     font-weight: 500;
     font-size: 1em;
 
@@ -88,11 +173,20 @@ body{
     position: absolute;
     right: 8px;
     font-size: 1.2px;
-    color: #30353b;
+    color: #1d4270;
     line-height: 57px;
 }
+.remember-forget{
+    
+    color: #e8f0fb;
+    font-size: 15px;
+}
+
 .btn{
-    height: 45px;
+    right: 39px;
+    height: 40px;
+    width: 105px;
+    position: absolute;
     background: #30353b;
     color: #fff;
     border: none;
@@ -100,25 +194,33 @@ body{
     text-transform: capitalize;
     font-weight: 500;
     margin-top: 5px;
-    box-shadow: rgba(0,0,0,0.4) 0 2px 4px,
-    rgba(0,0,0,0.3) 0 7px 11px -3px,
+    box-shadow: rgba(0,0,0,0.4) 0 2px 4px,rgba(0,0,0,0.3) 0 7px 11px -3px,
     rgba(0,0,0,0.2) 0 -3px 0 inset;
     transition: all 0.2;
     font-size: 1em;
     cursor: pointer;
+}
+.btn:active{
+    background: #30353b;
+    color: #fff;
+    box-shadow: rgba(0,0,0,0.3) 0 19px 32px, rgba(0,0,0,0.22) 0 15px 12;
+    transform: translateY(1px);
+}
+
+
+
+
+.bub::before img{
+    visibility: hidden;
+    display: none;
 }
 
 
 
 
 
-
-
-
-
-
-
 .bub img{
+    
     width: 70px;
     animation: bub 7s linear infinite;
 }
@@ -148,10 +250,12 @@ body{
    
 }
 .bub img:nth-child(1){
+    
     animation-delay: 2s;
     width: 40px;
 }
 .bub img:nth-child(2){
+    
     animation-delay: 1s;
     width: 77px;
 }
